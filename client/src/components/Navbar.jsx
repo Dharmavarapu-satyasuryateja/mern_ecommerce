@@ -1,63 +1,13 @@
-import React,{useState} from 'react'
-import API from '../api/axios'
-export default function Register() {
-    const [name,setName]=useState("")
-    const [email,setEmail]=useState("")
-    const [password,setPassword]=useState("")
-    const [mobile,setMobile]=useState("")
-    function handleRegister(e){
-        e.preventDefault()
-        API.post("",{name,email,password,mobile})
-            .then((res)=>{
-                console.log(res)
-            })
-            .catch(err=>{
-                console.log(err)
-            })
-    }
-    return (
-        <div className='container'>
-            <div className='row'>
-                <form onSubmit={handleRegister} className='col-12 col-md-6'>
-                    <div className='mb-3'>
-                        <h1>Register</h1>
-                    </div>
-                    <div class="mb-3">
-                        <label htmlFor="" class="form-label">Name</label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            name="name"
-                            onChange={(e)=>setName(e.target.value)}/>
-                    </div>
-                    <div class="mb-3">
-                        <label htmlFor="" class="form-label">Email</label>
-                        <input 
-                            type="email" 
-                            class="form-control" 
-                            name="email"
-                            onChange={(e)=>setEmail(e.target.value)}/>
-                    </div>
-                    <div class="mb-3">
-                        <label htmlFor="" class="form-label">Password</label>
-                        <input 
-                            type="password" 
-                            class="form-control" 
-                            name="password"
-                            onChange={(e)=>setPassword(e.target.value)}/>
-                    </div>
-                    <div class="mb-3">
-                        <label htmlFor="" class="form-label">Mobile Number</label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            name="mobile"
-                            onChange={(e)=>setMobile(e.target.value)}/>
-                    </div>
-                    <button className='btn btn-success'>Register</button>
-                </form>
-            </div>
+import React from 'react'
+import {Link} from 'react-router-dom'
 
-        </div>
-    )
+export default function Navbar() {
+  return (
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
+
+    </div>
+  )
 }
