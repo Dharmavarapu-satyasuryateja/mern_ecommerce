@@ -1,6 +1,6 @@
 const express= require("express")
 const router=express.Router() 
-const {protect,authorize}=require("../middleware/authMiddleware")
+const {protect,authorize}=require("../middleware/authmiddleware")
 const Product=require("../models/Product")
 const productRoutes=express.Router()
 
